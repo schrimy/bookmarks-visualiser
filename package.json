@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "start": "node src/server/server.js",
+    "build": "webpack serve --config webpack.common.js --mode development --env development"
+  },
+  "dependencies": {
+    "bookmark-parser": "^0.1.6",
+    "cheerio": "^1.0.0-rc.3",
+    "circular-json": "^0.5.9",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/polyfill": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.4",
+    "style-loader": "^2.0.0",
+    "webpack": "4.43.0",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

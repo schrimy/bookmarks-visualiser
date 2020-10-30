@@ -1,0 +1,16 @@
+.bookmarks-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.bookmark-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: auto;
+
+    a {
+        cursor: pointer;
+        width: fit-content;
+    }
+}
