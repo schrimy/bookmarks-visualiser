@@ -16,7 +16,7 @@ export default class ListBuilder{
         for (const item of list) {
             switch(item.type) {
                 case 'folder':
-                    new Folder(bookmarksList)
+                    new Folder(bookmarksList, item)
                     break
                 case 'bookmark':
                     new Bookmark(bookmarksList, item)
