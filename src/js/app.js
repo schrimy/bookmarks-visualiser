@@ -1,4 +1,4 @@
-import Bookmark from './bookmark'
+import ListBuilder from './listBuilder'
 
 const init = () => {
     Client.readFile()
@@ -9,23 +9,7 @@ const init = () => {
 
 //TODO: create folder output
 const displayBookMarks = (bMarks) => {
-    const container = document.querySelector('#lists-container')
-    const bookmarksList = document.createElement('ul')
-
-    container.appendChild(bookmarksList)
-
-    for (const item of bMarks) {
-        switch(item.type) {
-            case 'folder':
-                console.log('folder')
-                break
-            case 'bookmark':
-                new Bookmark(bookmarksList, item)
-                break
-            default:
-                break
-        }
-    }
+    new ListBuilder(bMarks)
 }
 
 export {
