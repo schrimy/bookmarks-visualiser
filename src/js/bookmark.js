@@ -1,12 +1,11 @@
 export default class Bookmark {
 
-    constructor(data) {
-        this.createBookmark(data)
+    constructor(parent, data) {
+        this.createBookmark(data, parent)
     }
 
-    createBookmark(content) {
+    createBookmark(content, parentNode) {
         const { url, name } = content
-        const bMarks = document.querySelector('.bookmarks-list')
 
         const bookmarkItem = document.createElement('li')
         bookmarkItem.className= 'bookmark-item'
@@ -19,6 +18,6 @@ export default class Bookmark {
         link.className = 'bookmark-link'
 
         bookmarkItem.appendChild(link)
-        bMarks.appendChild(bookmarkItem)
+        parentNode.appendChild(bookmarkItem)
     }
 }

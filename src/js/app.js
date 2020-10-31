@@ -9,11 +9,16 @@ const init = () => {
 
 //TODO: create folder output
 const displayBookMarks = (bMarks) => {
+    const container = document.querySelector('#lists-container')
+    const bookmarksList = document.createElement('ul')
+
+    container.appendChild(bookmarksList)
+
     //TODO: change for switch
     for (const item of bMarks) {
         item.type === 'folder'
             ? console.log('folder')
-            : new Bookmark(item)
+            : new Bookmark(bookmarksList, item)
     }
 }
 
