@@ -14,11 +14,17 @@ const displayBookMarks = (bMarks) => {
 
     container.appendChild(bookmarksList)
 
-    //TODO: change for switch
     for (const item of bMarks) {
-        item.type === 'folder'
-            ? console.log('folder')
-            : new Bookmark(bookmarksList, item)
+        switch(item.type) {
+            case 'folder':
+                console.log('folder')
+                break
+            case 'bookmark':
+                new Bookmark(bookmarksList, item)
+                break
+            default:
+                break
+        }
     }
 }
 
