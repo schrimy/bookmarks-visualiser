@@ -5,7 +5,7 @@ const readFile = async () => {
     try {
         const data = await res.json()
         return {
-            children: data[0].children[0].children[2].children,
+            children: data[0].children,
             id: 'root',
             name: 'root'
         }

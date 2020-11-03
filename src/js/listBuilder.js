@@ -13,10 +13,10 @@ export default class ListBuilder{
         console.log('list info:', data)
     }
 
-    //TODO: remove sibling lists when a folder button is clicked on
     buildList(list) {
         const container = document.querySelector('#lists-container')
         const bookmarksList = document.createElement('ul')
+
         bookmarksList.appendChild(document.createElement('h2')).innerText = list.name
         bookmarksList.className = 'bookmark-list'
         bookmarksList.id = list.id
