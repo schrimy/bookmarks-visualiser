@@ -16,11 +16,11 @@ export default class Folder {
         listItem.appendChild(folderBtn)
         parent.appendChild(listItem)
 
-        listItem.addEventListener('click', () => this.folderClick(folder.children))
+        listItem.addEventListener('click', () => this.folderClick(folder))
     }
 
     //TODO: later when nav is available, if click on folder that has already created a new list don't create a new one (otherwise duplicates)
-    folderClick(childObjs) {
-        new ListBuilder(childObjs)
+    folderClick(folderObj) {
+        new ListBuilder(folderObj)
     }
 }

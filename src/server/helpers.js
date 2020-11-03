@@ -4,7 +4,10 @@ const readFile = async () => {
 
     try {
         const data = await res.json()
-        return data[0].children[0].children[2].children
+        return {
+            children: data[0].children[0].children[2].children,
+            id: 'root'
+        }
     } catch (err) {
         console.log('error reading file', err)
     }
