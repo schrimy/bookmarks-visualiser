@@ -17,6 +17,7 @@ export default class ListBuilder{
     buildList(list) {
         const container = document.querySelector('#lists-container')
         const bookmarksList = document.createElement('ul')
+        bookmarksList.appendChild(document.createElement('h2')).innerText = list.name
         bookmarksList.className = 'bookmark-list'
         bookmarksList.id = list.id
 
