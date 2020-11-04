@@ -4,11 +4,7 @@ import Folder from './folder'
 export default class ListBuilder{
     
     constructor(data) {
-        //make sure list doesn't exist before making it
-        const listExist = document.getElementById(data.id)
-        listExist === null
-            ? this.buildList(data)
-            : console.log('list already exists')
+        this.buildList(data)
         
         console.log('list info:', data)
     }
