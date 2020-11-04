@@ -31,5 +31,7 @@ export default class ListBuilder{
                     break
             }
         }
+
+        bookmarksList.classList.add('animated-list')
     }
 }
