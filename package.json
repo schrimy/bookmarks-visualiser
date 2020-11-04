@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "node src/server/server.js",
-    "build": "webpack serve --config webpack.common.js --mode development --env development"
+    "build": "webpack serve --config webpack.common.js --mode development --env development",
+    "build-prod": "webpack --config webpack.common.js"
   },
   "dependencies": {
     "bookmark-parser": "^0.1.6",

@@ -19,11 +19,10 @@ export default class Folder {
         listItem.addEventListener('click', () => this.folderClick(folder, parent))
     }
 
-    //TODO: remove sibling lists when a folder button is clicked on (loop through siblings first)
+    //when folder button is clicked run while loop to remove all previous sibling lists and then add new one
     folderClick(folderObj, parentObj) {
-        console.log('parent node to folder:', parentObj.nextElementSibling)
         
-        if(parentObj.nextElementSibling !== null) {
+        while(parentObj.nextElementSibling !== null) {
             parentObj.nextElementSibling.remove()
         }
 
