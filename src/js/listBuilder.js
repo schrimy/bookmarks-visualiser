@@ -31,7 +31,13 @@ export default class ListBuilder{
                     break
             }
         }
-
-        bookmarksList.classList.add('animated-list')
+        //animate in the newly created list
+        bookmarksList.animate([
+            { transform: 'translateX(-100px)'},
+            { transform: 'translateX(0px)'}
+        ], {
+            duration: 100,
+            easing: 'ease-out'
+        })
     }
 }
