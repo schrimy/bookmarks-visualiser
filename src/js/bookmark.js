@@ -9,7 +9,7 @@ export default class Bookmark {
 
         const bookmarkItem = document.createElement('li')
         bookmarkItem.className= 'bookmark-item'
-        bookmarkItem.innerHTML = name
+        bookmarkItem.innerText = name
 
         const link = document.createElement('a')
         link.href = url
