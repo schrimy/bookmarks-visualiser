@@ -1,7 +1,7 @@
 import ListBuilder from './listBuilder'
 
 const init = () => {
-    Client.readFile()
+    Client.readStream()
     .then((data) => {
         displayBookMarks(data)
     })

@@ -2,7 +2,7 @@
  * js
  */
 import { init } from './js/app'
-import { readFile } from './server/helpers'
+import { readFile, readStream } from './server/helpers'
 
 /**
  * styles
@@ -13,5 +13,6 @@ import './styles/main.scss'
 window.addEventListener('DOMContentLoaded', init)
 
 export {
-    readFile
+    readFile,
+    readStream
 }
