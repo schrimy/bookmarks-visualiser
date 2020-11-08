@@ -7,7 +7,7 @@ const readFile = async () => {
         return {
             children: data[0].children,
             id: 'root',
-            name: 'root'
+            name: 'Root'
         }
     } catch (err) {
         console.log('error reading file', err)
@@ -19,11 +19,19 @@ const readStream = async () => {
 
     try {
         const data = await res.json()
-        console.log('browser bookmarks:', data.roots)
+        let rootFolders = []
+
+        for (const item of Object.keys(data.roots)) {
+            rootFolders.push({
+                name: item,
+                ...data.roots[item]
+            })
+        }
+
         return {
-            children: data.roots.bookmark_bar.children,
+            children: rootFolders,
             id: 'root',
-            name: 'root'
+            name: 'Root'
         }
     } catch (err) {
         console.log('error getting browser bookmarks:', err)

@@ -19,7 +19,6 @@ export default class ListBuilder{
 
         container.appendChild(bookmarksList)
 
-        //TODO: for bookmark or url(for reading from chrome app data)
         for (const item of list.children) {
             switch(item.type) {
                 case 'folder':

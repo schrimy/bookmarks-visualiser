@@ -7,7 +7,6 @@ const init = () => {
     })
 }
 
-//TODO: create folder output
 const displayBookMarks = (bMarks) => {
     new ListBuilder(bMarks)
 }
