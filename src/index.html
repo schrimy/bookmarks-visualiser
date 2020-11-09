@@ -6,6 +6,12 @@
     <body>
         <header>
             <h1>Bookmarks Visualiser</h1>
+            <form class="file-selector">
+                <input type="radio" name="origin" value="stream" checked>
+                <label for="stream">Bookmarks from stream</label>
+                <input type="radio" name="origin" value="file">
+                <label for="file">Bookmarks from downloaded file</label>
+            </form>
         </header>
         <section id='lists-container'></section>
     </body>
