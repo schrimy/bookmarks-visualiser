@@ -16,6 +16,8 @@ app.listen(3030, () => {
     console.log('server running on port 3030')
 })
 
+//TODO: use body parser to parse path sent through from helpers
+//TODO: may also need to use 'path' package to form correct file paths and encrypt?
 app.get('/read', (req, res) => {
     BMParser.readFromHTMLFile('../bookmarks/src/assets/bookmarks.html')
     .then((data) => {

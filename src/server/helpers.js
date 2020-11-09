@@ -1,5 +1,6 @@
 //has to call a function on the server as the fs package only runs away from a client side file
-const readFile = async () => {
+const readFile = async (path) => {
+    console.log('passed file path:', path)
     const res = await fetch('http://localhost:3030/read')
 
     try {

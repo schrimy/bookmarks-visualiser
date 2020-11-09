@@ -7,10 +7,12 @@
         <header>
             <h1>Bookmarks Visualiser</h1>
             <form class="file-selector">
-                <input type="radio" name="origin" value="stream" checked>
-                <label for="stream">Bookmarks from stream</label>
-                <input type="radio" name="origin" value="file">
-                <label for="file">Bookmarks from downloaded file</label>
+                <input id="choice-one" type="radio" name="origin" value="stream" checked>
+                <label for="choice-one">Bookmarks from stream</label>
+                <input id="choice-two" type="radio" name="origin" value="file">
+                <label for="choice-two">Bookmarks from downloaded file</label>
+                <input id="file-path" type="file" accept=".html">
+                <input type="submit" name="origin">
             </form>
         </header>
         <section id='lists-container'></section>
