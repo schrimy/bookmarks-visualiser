@@ -20,8 +20,12 @@ const readOrigin = (evt) => {
     //dependent on selected origin return helper method to run
     const helperToRun = origin === 'file'
         ? () => {
-            const filePath = document.querySelector('#file-path').value
-            return Client.readFile(filePath)
+            const filePath = document.querySelector('#file-path')
+            console.log('file element files:', filePath.files[0])
+            const truePath = {
+                path: window.URL.createObjectURL(filePath.files[0])
+            }
+            return Client.readBlob(truePath.path)
         }
         : Client.readStream
 
