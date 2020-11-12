@@ -1,30 +1,35 @@
 const readBlob = async (url = '') => {
     const res = await fetch(url)
     console.log('blob url:', url)
-
+    //TODO: return data
     try {
         const data = await res
         console.log('read blob:', data)
-        return readFile(data)
+        data.text()
+        .then((page) => {
+            readFile(page)
+        })
     } catch (err) {
         console.log('error reading url', err)
     }
 }
 
 //has to call a function on the server as the fs package only runs away from a client side file
-const readFile = async (path = {}) => {
-    console.log('passed file path:', path)
+const readFile = async(page = {}) => {
     const res = await fetch('http://localhost:3030/read', {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
-            'Content-Type': 'application/raw',
+            'Content-Type': 'application/json',
         },
-        body: path
+        body: JSON.stringify({
+            page: page
+        })
     })
 
     try {
         const data = await res.json()
+        console.log('readFile data:', data)
         return {
             children: data[0].children,
             id: 'root',

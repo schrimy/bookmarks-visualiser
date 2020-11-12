@@ -11,7 +11,8 @@
     "cheerio": "^1.0.0-rc.3",
     "circular-json": "^0.5.9",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "read-blob": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

@@ -4,14 +4,14 @@ const BMParser = require('bookmarks-parser')
 //https://www.npmjs.com/package/circular-json (29/10/2020)
 const Circular = require('circular-json')
 const fs = require('fs')
+const readBlob = require('read-blob')
 
 const app = express()
 
 //middleware
 const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({extended: false}))
-//TODO: see if type of data changes this?
-app.use(bodyParser.raw)
+app.use(bodyParser.urlencoded({ limit: '50mb' ,extended: false }))
+app.use(bodyParser.json({ limit: '50mb' }))
 
 const cors = require('cors')
 app.use(cors())
@@ -22,25 +22,21 @@ app.listen(3030, () => {
     console.log('server running on port 3030')
 })
 
-//TODO: make sure what's sent through is not empty
 //TODO: may also need to use 'path' package to form correct file paths and encrypt?
 app.post('/read', (req, res) => {
     console.log('server read file body:', req.body)
 
-    /*req.body.text()
-    .then((content) => {
-        console.log(content)
-    })*/
+    BMParser(req.body.page, (err, response) => {
+        if(err) {
+            console.log('error parsing file text', err)
+            res.send(err)
+        }
 
-    /*BMParser(req.body, (err, res) => {
-        console.log(err)
-        console.log(res.parser)
-        console.log(res.bookmarks)
-    })*/
+        console.log(response.bookmarks)
+        res.send(response.bookmarks)
+    })
 
-    /*const stream = fs.createReadStream(req.body)
-
-    BMParser.readFromHTMLReadStream(stream)
+    /*BMParser.readFromHTMLReadStream(req.body.path)
     .then((data) => {
         res.send(Circular.stringify(data.Bookmarks.children))
     })
@@ -50,6 +46,7 @@ app.post('/read', (req, res) => {
 })
 
 app.get('/readStream', (req, res) => {
+    console.log('server read stream')
     fs.promises.readFile('../../../AppData/Local/Google/Chrome/User Data/Default/Bookmarks')
     .then((data) => {
         res.send(data)
