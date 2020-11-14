@@ -1,7 +1,6 @@
 import ListBuilder from './listBuilder'
 
 const init = () => {
-    //TODO: create radio / select / file chooser to choose either exported html file or local appData file
     const fileSelector = document.querySelector('.file-selector')
     fileSelector.addEventListener('submit', readOrigin)
 
@@ -14,8 +13,9 @@ const readOrigin = (evt) => {
     evt.preventDefault()
     const origin = evt.target.origin.value
 
-    //clear current lists
-    document.querySelector('#lists-container').innerHTML = ''
+    //clear current lists and show loading
+    const listContainer = document.querySelector('#lists-container')
+    listContainer.innerHTML = 'LOADING..'
 
     //dependent on selected origin return helper method to run
     const helperToRun = origin === 'file'
@@ -30,6 +30,7 @@ const readOrigin = (evt) => {
     helperToRun()
     .then((data) => {
         console.log('readOrigin returns:', data)
+        listContainer.innerHTML = ''
         displayBookMarks(data)
     })
 }
