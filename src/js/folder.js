@@ -8,7 +8,7 @@ export default class Folder {
     buildFolder(parent, folder) {
         const listItem = document.createElement('li')
         listItem.className = 'bookmark-item'
-        listItem.innerHTML = folder.name
+        listItem.innerHTML = folder.name || folder.title
 
         const folderBtn = document.createElement('button')
         folderBtn.innerText = 'Folder ->'

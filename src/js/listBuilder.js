@@ -13,7 +13,7 @@ export default class ListBuilder{
         const container = document.querySelector('#lists-container')
         const bookmarksList = document.createElement('ul')
 
-        bookmarksList.appendChild(document.createElement('h2')).innerText = list.name
+        bookmarksList.appendChild(document.createElement('h2')).innerText = list.name || list.title
         bookmarksList.className = 'bookmark-list'
         bookmarksList.id = list.id
 

@@ -1,17 +1,20 @@
+//chaining await promises (https://www.pluralsight.com/guides/handling-nested-http-requests-using-the-fetch-api) (14/11/2020)
 const readBlob = async (url = '') => {
     const res = await fetch(url)
-    console.log('blob url:', url)
-    //TODO: return data
-    try {
-        const data = await res
-        console.log('read blob:', data)
-        data.text()
-        .then((page) => {
-            readFile(page)
-        })
-    } catch (err) {
+    .then((data) => {
+        return data.text()
+    })
+    .then((page) => {
+        return readFile(page)
+    })
+    .then((dataObj) => {
+        return dataObj
+    })
+    .catch(err => {
         console.log('error reading url', err)
-    }
+    })
+
+    return res
 }
 
 //has to call a function on the server as the fs package only runs away from a client side file

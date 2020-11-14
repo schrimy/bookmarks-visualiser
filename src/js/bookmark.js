@@ -5,11 +5,11 @@ export default class Bookmark {
     }
 
     createBookmark(content, parentNode) {
-        const { url, name } = content
+        const { url, name, title } = content
 
         const bookmarkItem = document.createElement('li')
         bookmarkItem.className= 'bookmark-item'
-        bookmarkItem.innerText = name
+        bookmarkItem.innerText = name || title
 
         const link = document.createElement('a')
         link.href = url

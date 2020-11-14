@@ -1,16 +1,13 @@
 const express = require('express')
 //https://www.npmjs.com/package/bookmark-parser (29/10/2020)
 const BMParser = require('bookmarks-parser')
-//https://www.npmjs.com/package/circular-json (29/10/2020)
-const Circular = require('circular-json')
 const fs = require('fs')
-const readBlob = require('read-blob')
 
 const app = express()
 
 //middleware
 const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({ limit: '50mb' ,extended: false }))
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }))
 app.use(bodyParser.json({ limit: '50mb' }))
 
 const cors = require('cors')
@@ -35,14 +32,6 @@ app.post('/read', (req, res) => {
         console.log(response.bookmarks)
         res.send(response.bookmarks)
     })
-
-    /*BMParser.readFromHTMLReadStream(req.body.path)
-    .then((data) => {
-        res.send(Circular.stringify(data.Bookmarks.children))
-    })
-    .catch(err => {
-        console.log('error in parser:', err)
-    })*/
 })
 
 app.get('/readStream', (req, res) => {

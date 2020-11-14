@@ -29,6 +29,7 @@ const readOrigin = (evt) => {
 
     helperToRun()
     .then((data) => {
+        console.log('readOrigin returns:', data)
         displayBookMarks(data)
     })
 }
