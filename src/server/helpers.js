@@ -17,6 +17,7 @@ const readBlob = async (url = '') => {
     return res
 }
 
+//TODO: set up and test what happens when wrong file or not a bookmarks file
 //has to call a function on the server as the fs package only runs away from a client side file
 const readFile = async(page = {}) => {
     const res = await fetch('http://localhost:3030/read', {

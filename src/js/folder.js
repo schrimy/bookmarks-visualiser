@@ -11,7 +11,7 @@ export default class Folder {
         listItem.innerHTML = folder.name || folder.title
 
         const folderBtn = document.createElement('button')
-        folderBtn.innerText = 'Folder ->'
+        folderBtn.className = 'folder-btn'
 
         listItem.appendChild(folderBtn)
         parent.appendChild(listItem)

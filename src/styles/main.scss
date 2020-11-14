@@ -28,13 +28,12 @@ header {
 
     a {
         cursor: pointer;
-        width: fit-content;
         color: #f309f3;
     }
 
     button {
         cursor: pointer;
-        width: fit-content;
+        border: none;
     }
 }
 
@@ -43,4 +42,18 @@ header {
     list-style: none;
     padding: 10px;
     margin-right: 10px;
+}
+
+.bookmark-link {
+    width: 24px;
+    height: 24px;
+    background: url('../assets/icons/open-icon.svg');
+    filter: invert(100%);
+}
+
+.folder-btn {
+    width: 24px;
+    height: 24px;
+    background: url('../assets/icons/folder-icon.svg');
+    filter: invert(100%)
 }
