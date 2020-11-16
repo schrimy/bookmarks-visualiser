@@ -6,15 +6,21 @@
     <body>
         <header>
             <h1>Bookmarks Visualiser</h1>
+        </header>
+        <main>
             <form class="file-selector">
-                <input id="choice-one" type="radio" name="origin" value="stream" checked>
-                <label for="choice-one">Bookmarks from stream</label>
-                <input id="choice-two" type="radio" name="origin" value="file">
-                <label for="choice-two">Bookmarks from downloaded file</label>
-                <input id="file-path" type="file" accept=".html">
+                <div>
+                    <input id="choice-one" type="radio" name="origin" value="stream" checked>
+                    <label for="choice-one">Bookmarks from stream</label>
+                </div>
+                <div class="download-file">
+                    <input id="choice-two" type="radio" name="origin" value="file">
+                    <label for="choice-two">Bookmarks from downloaded file</label>
+                    <input id="file-path" type="file" accept=".html">
+                </div>
                 <input type="submit" name="origin">
             </form>
-        </header>
-        <section id='lists-container'></section>
+            <section id='lists-container'></section>
+        </main>
     </body>
 </html>

@@ -30,8 +30,13 @@ const readOrigin = (evt) => {
     helperToRun()
     .then((data) => {
         console.log('readOrigin returns:', data)
+
         listContainer.innerHTML = ''
         displayBookMarks(data)
+    })
+    .catch(err => {
+        alert('Incompatible file, please check file is a bookmarks html and try again')
+        console.log('error reading file:', err)
     })
 }
 

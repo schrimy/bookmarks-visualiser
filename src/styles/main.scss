@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap');
 
+$fileSelector: hidden;
+
 html,
 body {
     margin: 0;
@@ -15,10 +17,31 @@ header {
     margin-left: 1em;
 }
 
+main {
+    margin: 0 1em;
+}
+
 #lists-container {
     display: flex;
     flex-direction: row;
-    margin: 0 1em;
+}
+
+.file-selector {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+
+    #file-path {
+        margin-left: 10px;
+        visibility: $fileSelector;
+    }
+
+    #choice-two:checked {
+        ~ #file-path{
+            visibility: visible;
+        }
+    }
 }
 
 .bookmark-item {
