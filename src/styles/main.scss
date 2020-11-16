@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap');
 
-$fileSelector: hidden;
-
 html,
 body {
     margin: 0;
@@ -34,7 +32,7 @@ main {
 
     #file-path {
         margin-left: 10px;
-        visibility: $fileSelector;
+        visibility: hidden;
     }
 
     #choice-two:checked {
