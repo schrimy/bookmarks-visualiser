@@ -30,15 +30,61 @@ main {
     grid-template-rows: repeat(2, auto);
     gap: 10px;
 
+    input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: 2px solid #f309f3;
+        border-radius: 50%;
+        width: 1.5em;
+        height: 1.5em;
+        outline: none;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            margin: 15%;
+        }
+
+        &:checked::before {
+            background: #f309f3;
+        }
+    }
+
     #file-path {
         margin-left: 10px;
         visibility: hidden;
+    }
+
+    .download-file,
+    .browser-file {
+        input:hover {
+            cursor: pointer;
+        }
+
+        label:hover {
+            cursor: pointer;
+        }
     }
 
     #choice-two:checked {
         ~ #file-path{
             visibility: visible;
         }
+    }
+
+    .file-btn {
+        background: none;
+        border: none;
+        font-family: 'Oswald', sans-serif;
+        color: #fff;
+        font-size: 1.2em;
+        width: fit-content;
+        cursor: pointer;
+        text-decoration: underline;
     }
 }
 
@@ -69,12 +115,12 @@ main {
     width: 24px;
     height: 24px;
     background: url('../assets/icons/open-icon.svg');
-    filter: invert(100%);
+    filter: invert(21%) sepia(97%) saturate(3097%) hue-rotate(316deg) brightness(103%) contrast(108%);
 }
 
 .folder-btn {
     width: 24px;
     height: 24px;
     background: url('../assets/icons/folder-icon.svg');
-    filter: invert(100%)
+    filter: invert(21%) sepia(97%) saturate(3097%) hue-rotate(316deg) brightness(103%) contrast(108%);
 }

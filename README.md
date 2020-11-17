@@ -20,7 +20,12 @@ to prove the concept.
 ## Resources
 
 [bookmarks-parser, calibr](https://www.npmjs.com/package/bookmarks-parser) - npm package to parse bookmarks via file text. (Used: 10/11/2020)
+
 [iconmonstr](https://iconmonstr.com/) - free icons svg's. (14/11/2020)
+
+[codepen, Barrett Sonntag](https://codepen.io/sosuke/pen/Pjoqqp) - use filters in css to change background image colour. (17/11/2020)
+
+[stackoverflow](https://stackoverflow.com/questions/23167637/is-it-possible-to-change-the-color-of-selected-radio-buttons-center-circle) - custom radio button styles (17/11/2020)
 
 ## ToDo
 
