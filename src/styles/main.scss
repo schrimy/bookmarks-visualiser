@@ -114,6 +114,7 @@ main {
 .bookmark-link {
     width: 24px;
     height: 24px;
+    outline: none;
     background: url('../assets/icons/open-icon.svg');
     filter: invert(21%) sepia(97%) saturate(3097%) hue-rotate(316deg) brightness(103%) contrast(108%);
 }
@@ -121,6 +122,11 @@ main {
 .folder-btn {
     width: 24px;
     height: 24px;
+    outline: none;
     background: url('../assets/icons/folder-icon.svg');
     filter: invert(21%) sepia(97%) saturate(3097%) hue-rotate(316deg) brightness(103%) contrast(108%);
+
+    &:hover {
+        background: url('../assets/icons/folder-open-icon.svg');
+    }
 }

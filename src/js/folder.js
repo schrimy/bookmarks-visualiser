@@ -1,4 +1,5 @@
 import ListBuilder from './listBuilder'
+import folderImg from '../assets/icons/folder-open-icon.svg'
 export default class Folder {
 
     constructor(parentNode, folderObj) {
@@ -16,12 +17,22 @@ export default class Folder {
         listItem.appendChild(folderBtn)
         parent.appendChild(listItem)
 
-        listItem.addEventListener('click', () => this.folderClick(folder, parent))
+        listItem.addEventListener('click', (evt) => this.folderClick(evt, folder, parent))
     }
 
     //when folder button is clicked run while loop to remove all previous sibling lists and then add new one
-    folderClick(folderObj, parentObj) {
+    folderClick(evt, folderObj, parentObj) {
+        //remove inline style of filled folder image if another sibling folder has been clicked
+        parentObj.childNodes.forEach(item => {
+            if(item.childNodes[1] !== undefined) {
+                item.childNodes[1].removeAttribute('style')
+            }
+        })
+
+        //add filled in icon to clicked folder object
+        evt.target.setAttribute('style', `background: url(${folderImg})`)
         
+        //remove any sibling folder lists to the current parent list
         while(parentObj.nextElementSibling !== null) {
             parentObj.nextElementSibling.remove()
         }
