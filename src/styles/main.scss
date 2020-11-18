@@ -127,7 +127,7 @@ main {
     width: 24px;
     height: 24px;
     outline: none;
-    background: url('../assets/icons/folder-icon.svg');
+    background: url('../assets/icons/folder-icon.svg') no-repeat;
     filter: invert(21%) sepia(97%) saturate(3097%) hue-rotate(316deg) brightness(103%) contrast(108%);
 
     &:hover {

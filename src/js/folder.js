@@ -4,6 +4,8 @@ export default class Folder {
 
     constructor(parentNode, folderObj) {
         this.buildFolder(parentNode, folderObj)
+
+        this.folderBtn
     }
 
     buildFolder(parent, folder) {
@@ -11,17 +13,17 @@ export default class Folder {
         listItem.className = 'bookmark-item'
         listItem.innerHTML = folder.name || folder.title
 
-        const folderBtn = document.createElement('button')
-        folderBtn.className = 'folder-btn'
+        this.folderBtn = document.createElement('button')
+        this.folderBtn.className = 'folder-btn'
 
-        listItem.appendChild(folderBtn)
+        listItem.appendChild(this.folderBtn)
         parent.appendChild(listItem)
 
-        listItem.addEventListener('click', (evt) => this.folderClick(evt, folder, parent))
+        listItem.addEventListener('click', () => this.folderClick(folder, parent))
     }
 
     //when folder button is clicked run while loop to remove all previous sibling lists and then add new one
-    folderClick(evt, folderObj, parentObj) {
+    folderClick(folderObj, parentObj) {
         //remove inline style of filled folder image if another sibling folder has been clicked
         parentObj.childNodes.forEach(item => {
             if(item.childNodes[1] !== undefined) {
@@ -30,7 +32,7 @@ export default class Folder {
         })
 
         //add filled in icon to clicked folder object
-        evt.target.setAttribute('style', `background: url(${folderImg})`)
+        this.folderBtn.setAttribute('style', `background: url(${folderImg})`)
         
         //remove any sibling folder lists to the current parent list
         while(parentObj.nextElementSibling !== null) {
