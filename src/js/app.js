@@ -1,4 +1,5 @@
 import ListBuilder from './listBuilder'
+import Loader from './loader'
 
 const init = () => {
     const fileSelector = document.querySelector('.file-selector')
@@ -15,7 +16,8 @@ const readOrigin = (evt) => {
 
     //clear current lists and show loading
     const listContainer = document.querySelector('#lists-container')
-    listContainer.innerHTML = 'LOADING..'
+    listContainer.innerHTML = ''
+    const loader = new Loader(listContainer)
 
     //dependent on selected origin return helper method to run
     const helperToRun = origin === 'file'
@@ -31,6 +33,7 @@ const readOrigin = (evt) => {
     .then((data) => {
         console.log('readOrigin returns:', data)
 
+        loader.stopTimer()
         listContainer.innerHTML = ''
         displayBookMarks(data)
     })
