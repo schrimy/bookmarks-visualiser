@@ -83,12 +83,25 @@ main {
     .file-btn {
         background: none;
         border: none;
+        border-bottom: 2px solid #fff;
         font-family: 'Oswald', sans-serif;
         color: #fff;
         font-size: 1.2em;
-        width: fit-content;
+        width: 50px;
+        padding-left: 0;
+        margin-left: 5px;
+        text-align: left;
+        outline: none;
         cursor: pointer;
-        text-decoration: underline;
+        transition: width 2s;
+
+        &:hover {
+            width: 100px;
+        }
+
+        &:active {
+            color: #000;
+        }
     }
 }
 
