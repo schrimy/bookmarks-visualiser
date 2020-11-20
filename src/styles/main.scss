@@ -2,21 +2,13 @@
 
 html,
 body {
-    margin: 0;
+    margin: 0 0 0 10px;
     padding: 0;
     box-sizing: border-box;
     background-color: #05058f;
     color: #fff;
     font-family: 'Oswald', sans-serif;
     font-size: 1em;
-}
-
-header {
-    margin-left: 1em;
-}
-
-main {
-    margin: 0 1em;
 }
 
 #lists-container {
@@ -30,6 +22,11 @@ main {
     grid-template-rows: repeat(2, auto);
     gap: 10px;
 
+    label {
+        margin-left: 5px;
+        vertical-align: middle;
+    }
+
     input[type="radio"] {
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -39,6 +36,7 @@ main {
         width: 1.5em;
         height: 1.5em;
         outline: none;
+        margin: 0;
 
         &::before {
             content: '';
@@ -54,13 +52,41 @@ main {
             background: #f309f3;
             width: 70%;
             height: 70%;
-            margin: 15%;
+            margin: 14% 0 0 16%;
         }
     }
 
     #file-path {
         margin-left: 10px;
         visibility: hidden;
+
+        &::-webkit-file-upload-button {
+            display: none;
+        }
+
+        &::after {
+            content: 'Choose File';
+            display: inline-block;
+            color: #f309f3;
+            border: 1px solid #f309f3;
+            border-radius: 0.5em;
+            padding: 2px 3px 3px 3px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1em;
+            outline: none;
+            margin-left: 10px;
+        }
+
+        &:hover::after {
+            color: #000;
+            background-color: #f309f3;
+        }
+    }
+
+    .file-choice {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     .download-file,
@@ -89,7 +115,6 @@ main {
         font-size: 1.2em;
         width: 50px;
         padding-left: 0;
-        margin-left: 5px;
         text-align: left;
         outline: none;
         cursor: pointer;
@@ -103,6 +128,11 @@ main {
             color: #000;
         }
     }
+}
+
+.loader-container {
+    font-size: 2em;
+    margin-top: 10px;
 }
 
 .bookmark-item {
@@ -123,9 +153,12 @@ main {
 
 .bookmark-list {
     border: 1px solid #000;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
     list-style: none;
     padding: 10px;
-    margin-right: 10px;
+    margin-right: 0;
+    box-shadow: 3px 0 5px #000;
 }
 
 .bookmark-link {
@@ -133,7 +166,7 @@ main {
     height: 24px;
     outline: none;
     background: url('../assets/icons/open-icon.svg');
-    filter: invert(21%) sepia(97%) saturate(3097%) hue-rotate(316deg) brightness(103%) contrast(108%);
+    filter: invert(43%) sepia(47%) saturate(3429%) hue-rotate(272deg) brightness(90%) contrast(116%);
 }
 
 .folder-btn {
@@ -141,7 +174,7 @@ main {
     height: 24px;
     outline: none;
     background: url('../assets/icons/folder-icon.svg') no-repeat;
-    filter: invert(21%) sepia(97%) saturate(3097%) hue-rotate(316deg) brightness(103%) contrast(108%);
+    filter: invert(43%) sepia(47%) saturate(3429%) hue-rotate(272deg) brightness(90%) contrast(116%);
 
     &:hover {
         background: url('../assets/icons/folder-open-icon.svg');
