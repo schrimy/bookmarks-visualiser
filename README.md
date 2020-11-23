@@ -21,6 +21,8 @@ to prove the concept.
 
 [bookmarks-parser, calibr](https://www.npmjs.com/package/bookmarks-parser) - npm package to parse bookmarks via file text. (Used: 10/11/2020)
 
+[bookmark-parser, CCharlieLi](https://github.com/CCharlieLi/bookmark-parser#readme) - node package to read / parse a JSONLZ4 file (23/11/2020)
+
 [iconmonstr](https://iconmonstr.com/) - free icons svg's. (14/11/2020)
 
 [codepen, Barrett Sonntag](https://codepen.io/sosuke/pen/Pjoqqp) - use filters in css to change background image colour. (17/11/2020)

@@ -5,15 +5,15 @@ export default class Bookmark {
     }
 
     createBookmark(content, parentNode) {
-        const { url, name, title } = content
+        //different content names depending on file source eg uri for JSONLZ4 file and url for html file / json
+        const { url, uri, name, title } = content
 
         const bookmarkItem = document.createElement('li')
         bookmarkItem.className= 'bookmark-item'
         bookmarkItem.innerText = name || title
 
         const link = document.createElement('a')
-        link.href = url
-        //link.innerText = 'Bookmark link'
+        link.href = url || uri
         link.target = '_blank'
         link.className = 'bookmark-link'
 

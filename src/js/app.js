@@ -27,7 +27,7 @@ const readOrigin = (evt) => {
             const truePath = window.URL.createObjectURL(filePath.files[0])
             return Client.readBlob(truePath)
         }
-        : Client.readStream
+        : Client.readMozFile
 
     helperToRun()
     .then((data) => {

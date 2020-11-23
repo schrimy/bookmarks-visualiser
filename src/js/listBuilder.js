@@ -19,19 +19,25 @@ export default class ListBuilder{
 
         container.appendChild(bookmarksList)
 
-        for (const item of list.children) {
-            switch(item.type) {
-                case 'folder':
-                    new Folder(bookmarksList, item)
-                    break
-                case 'bookmark':
-                case 'url':
-                    new Bookmark(bookmarksList, item)
-                    break
-                default:
-                    break
+        //if there are children to the folder then build out the child objects
+        if(list.children !== undefined) {
+            for (const item of list.children) {
+                switch(item.type) {
+                    case 'folder':
+                    case 'text/x-moz-place-container':
+                        new Folder(bookmarksList, item)
+                        break
+                    case 'bookmark':
+                    case 'url':
+                    case 'text/x-moz-place':
+                        new Bookmark(bookmarksList, item)
+                        break
+                    default:
+                        break
+                }
             }
         }
+        
         //animate in the newly created list
         bookmarksList.animate([
             { transform: 'translateX(-100px)' },

@@ -43,6 +43,23 @@ const readFile = async(page = {}) => {
     }
 }
 
+const readMozFile = async () => {
+    const res = await fetch('http://localhost:3030/readMoz')
+
+    try {
+        const data = await res.json()
+        console.log('moz file data:', data)
+
+        return {
+            children: data.children,
+            id: 'root',
+            name: 'Root'
+        }
+    } catch (err) {
+        console.log('error reading mozilla file:', err)
+    }
+}
+
 const readStream = async () => {
     const res = await fetch('http://localhost:3030/readStream')
 
@@ -70,5 +87,6 @@ const readStream = async () => {
 export {
     readFile,
     readStream,
+    readMozFile,
     readBlob
 }

@@ -1,6 +1,7 @@
 const express = require('express')
 //https://www.npmjs.com/package/bookmark-parser (29/10/2020)
 const BMParser = require('bookmarks-parser')
+const MozParser = require('bookmark-parser')
 const fs = require('fs')
 
 const app = express()
@@ -31,6 +32,16 @@ app.post('/read', (req, res) => {
 
         console.log(response.bookmarks)
         res.send(response.bookmarks)
+    })
+})
+
+app.get('/readMoz', (req, res) => {
+    MozParser.readFromJSONLZ4File('../../../AppData/Roaming/Mozilla/Firefox/Profiles/2shkn9tx.default/bookmarkbackups/bookmarks-2020-05-17_160_2s2GCdPeIuDlzX+ngp3gsA==.jsonlz4')
+    .then((data) => {
+        res.send(data)
+    })
+    .catch(err => {
+        console.log('error parsing stream:', err)
     })
 })
 
