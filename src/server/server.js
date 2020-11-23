@@ -20,7 +20,7 @@ app.listen(3030, () => {
     console.log('server running on port 3030')
 })
 
-//TODO: may also need to use 'path' package to form correct file paths and encrypt?
+//TODO: may also need to use 'path' package to form correct file paths when live
 app.post('/read', (req, res) => {
     console.log('server read file body:', req.body)
 
@@ -36,7 +36,18 @@ app.post('/read', (req, res) => {
 })
 
 app.get('/readMoz', (req, res) => {
-    MozParser.readFromJSONLZ4File('../../../AppData/Roaming/Mozilla/Firefox/Profiles/2shkn9tx.default/bookmarkbackups/bookmarks-2020-05-17_160_2s2GCdPeIuDlzX+ngp3gsA==.jsonlz4')
+    const defaultFolder = fs.readdirSync('../../../AppData/Roaming/Mozilla/Firefox/Profiles').map(folders => {
+        if(folders.match(/default/)) {
+            return folders
+        }
+    })
+    const filePath = `../../../AppData/Roaming/Mozilla/Firefox/Profiles/${defaultFolder}/bookmarkbackups`
+
+    const latestFile = fs.readdirSync(filePath)
+    .sort((a, b) => fs.statSync(`${filePath}/${b}`).mtime - fs.statSync(`${filePath}/${a}`).mtime)
+
+    console.log('latest file:', latestFile[0])
+    MozParser.readFromJSONLZ4File(`../../../AppData/Roaming/Mozilla/Firefox/Profiles/${defaultFolder}/bookmarkbackups/${latestFile[0]}`)
     .then((data) => {
         res.send(data)
     })

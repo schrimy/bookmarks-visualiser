@@ -43,6 +43,7 @@ const readFile = async(page = {}) => {
     }
 }
 
+//TODO: detect if firefox or chrome is being used and init relevant helper
 const readMozFile = async () => {
     const res = await fetch('http://localhost:3030/readMoz')
 
