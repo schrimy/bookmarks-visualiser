@@ -33,6 +33,6 @@ to prove the concept.
 
 ## ToDo
 
-* make the reading bookmarks from appData work for firefox aswell as chrome at least
+* make sure paths set for reading browser local files works when deployed
 * implement a more usuable interface for smaller screens
 * general styling updates
