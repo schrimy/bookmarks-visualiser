@@ -2,11 +2,13 @@ import ListBuilder from './listBuilder'
 import Loader from './loader'
 
 const init = () => {
+    window.removeEventListener('DOMContentLoaded', init)
+
     const fileSelector = document.querySelector('.file-selector')
     fileSelector.addEventListener('submit', readOrigin)
 
     //fire off initial event to populate page with default file selector form option
-    const initEvent = new Event('submit')
+    const initEvent = new Event('submit', {'cancelable': true})
     fileSelector.dispatchEvent(initEvent)
 }
 
@@ -27,7 +29,7 @@ const readOrigin = (evt) => {
             const truePath = window.URL.createObjectURL(filePath.files[0])
             return Client.readBlob(truePath)
         }
-        : Client.readMozFile
+        : Client.checkBrowser
 
     helperToRun()
     .then((data) => {

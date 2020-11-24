@@ -29,10 +29,10 @@ to prove the concept.
 
 [stackoverflow](https://stackoverflow.com/questions/23167637/is-it-possible-to-change-the-color-of-selected-radio-buttons-center-circle) - custom radio button styles (17/11/2020)
 
+[stackoverflow](https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser) - how to detect which browser is being used (24/11/2020)
+
 ## ToDo
 
 * make the reading bookmarks from appData work for firefox aswell as chrome at least
-* add some more animation to it?
 * implement a more usuable interface for smaller screens
 * general styling updates
-* update loading notification

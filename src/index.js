@@ -2,7 +2,7 @@
  * js
  */
 import { init } from './js/app'
-import { readFile, readStream, readMozFile, readBlob } from './server/helpers'
+import { readFile, readStream, readMozFile, readBlob, checkBrowser } from './server/helpers'
 
 /**
  * styles
@@ -16,5 +16,6 @@ export {
     readFile,
     readStream,
     readMozFile,
-    readBlob
+    readBlob,
+    checkBrowser
 }

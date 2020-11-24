@@ -43,7 +43,20 @@ const readFile = async(page = {}) => {
     }
 }
 
-//TODO: detect if firefox or chrome is being used and init relevant helper
+//https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser - detect currently used browser (24/11/2020)
+//detects if either firefox or chrome is being used and then runs the relevenat helper method
+const checkBrowser = () => {
+    const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)
+    const isFirefox = typeof InstallTrigger !== 'undefined'
+    console.log(`check browser chrome: ${isChrome} firefox: ${isFirefox}`)
+
+    if(isChrome) {
+        return readStream()
+    } else if(isFirefox) {
+        return readMozFile()
+    }
+}
+
 const readMozFile = async () => {
     const res = await fetch('http://localhost:3030/readMoz')
 
@@ -89,5 +102,6 @@ export {
     readFile,
     readStream,
     readMozFile,
-    readBlob
+    readBlob,
+    checkBrowser
 }
