@@ -37,15 +37,5 @@ export default class ListBuilder{
                 }
             }
         }
-        
-        //TODO: transfer this to a css animation so can be changed to vertical one when on small screens
-        //animate in the newly created list
-        bookmarksList.animate([
-            { transform: 'translateX(-100px)' },
-            { transform: 'translateX(0px)' }
-        ], {
-            duration: 100,
-            easing: 'ease-out'
-        })
     }
 }

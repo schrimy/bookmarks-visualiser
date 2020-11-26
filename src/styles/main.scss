@@ -219,11 +219,34 @@ footer {
     padding: 10px;
     margin: 0;
     box-shadow: 0 5px 5px #000;
+    animation-duration: 0.3s;
+    animation-name: slidein;
+    position: relative;
+
+    @keyframes slidein {
+        from {
+            top: -100px;
+        }
+
+        to {
+            top: 0;
+        }
+    }
 
     @media (min-width: 900px) {
         border-top-right-radius: 1em;
         border-bottom-right-radius: 1em;
         box-shadow: 3px 0 5px #000;
+
+        @keyframes slidein {
+            from {
+                left: -100px;
+            }
+    
+            to {
+                left: 0;
+            }
+        }
     }
 }
 
