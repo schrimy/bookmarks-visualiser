@@ -54,32 +54,31 @@ footer {
         appearance: none;
         border: 2px solid #f309f3;
         border-radius: 50%;
-        width: 1.5em;
-        height: 1.5em;
+        width: 20px;
+        height: 20px;
         outline: none;
-        margin: 0;
 
         &::before {
             content: '';
             display: block;
             border-radius: 50%;
-            margin: 50%;
             width: 0;
             height: 0;
+            margin: 50%;
             transition: width 0.3s, height 0.3s, margin 0.3s;
         }
 
         &:checked::before {
             background: #f309f3;
-            width: 70%;
-            height: 70%;
-            margin: 14% 0 0 16%;
+            width: 10px;
+            height: 10px;
+            margin: 3px;
         }
     }
 
     #file-path {
         visibility: hidden;
-        margin: 5px 0;
+        margin: 5px 0 5px 10px;
 
         &::-webkit-file-upload-button {
             display: none;
