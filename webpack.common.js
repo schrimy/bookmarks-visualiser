@@ -2,7 +2,6 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-    mode: 'development',
     entry: './src/index.js',
     devtool: 'source-map',
     output: {
@@ -23,16 +22,8 @@ module.exports = {
                     name: '[name].[ext]',
                     outputPath: 'icons'
                 }
-            },
-            {
-                test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
-    },
-    devServer: {
-        contentBase: './dist',
-        port: 9000
     },
     plugins: [
         new HtmlWebPackPlugin({

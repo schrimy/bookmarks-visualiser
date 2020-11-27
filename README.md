@@ -29,10 +29,11 @@ to prove the concept.
 
 [stackoverflow](https://stackoverflow.com/questions/23167637/is-it-possible-to-change-the-color-of-selected-radio-buttons-center-circle) - custom radio button styles (17/11/2020)
 
+[stackoverflow](https://stackoverflow.com/questions/10956740/finding-latest-modified-file-in-a-folder/42603192) - determine the latest file in a folder to therefore use the latest version of the mozilla bookmarks backup (23/11/2020)
+
 [stackoverflow](https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser) - how to detect which browser is being used (24/11/2020)
 
 ## ToDo
 
 * make sure paths set for reading browser local files works when deployed
-* implement a more usuable interface for smaller screens
 * general styling updates
