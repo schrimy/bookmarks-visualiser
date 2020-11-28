@@ -4,6 +4,9 @@ const BMParser = require('bookmarks-parser')
 const MozParser = require('bookmark-parser')
 const fs = require('fs')
 
+const dotenv = require('dotenv')
+dotenv.config()
+
 const path = require('path')
 
 const app = express()
@@ -18,7 +21,11 @@ app.use(cors())
 
 app.use(express.static('dist'))
 
-app.listen(3030, () => {
+let port = process.env.port
+if(port == null || port == '') {
+    port = 3030
+}
+app.listen(port, () => {
     console.log('server running on port 3030')
 })
 
