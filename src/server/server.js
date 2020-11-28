@@ -21,11 +21,11 @@ app.use(cors())
 
 app.use(express.static('dist'))
 
-let port = process.env.port
-if(port == null || port == '') {
-    port = 8000
+let PORT = process.env.PORT
+if(PORT == null || PORT == '') {
+    PORT = 8000
 }
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log('server running on port 8000')
 })
 
@@ -70,6 +70,7 @@ app.get('/readMoz', (req, res) => {
     })
 })
 
+//TODO: for heroku get fs to grab correct filepath from computer and not where it's hosted
 app.get('/readStream', (req, res) => {
     console.log('server read stream')
     fs.promises.readFile(path.relative(__dirname, '../AppData/Local/Google/Chrome/User Data/Default/Bookmarks'))
