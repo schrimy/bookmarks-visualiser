@@ -23,10 +23,14 @@ app.use(express.static('dist'))
 
 let port = process.env.port
 if(port == null || port == '') {
-    port = 3030
+    port = 8000
 }
 app.listen(port, () => {
-    console.log('server running on port 3030')
+    console.log('server running on port 8000')
+})
+
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve('src/index.html'))
 })
 
 //TODO: may also need to use 'path' package to form correct file paths when live

@@ -19,7 +19,7 @@ const readBlob = async (url = '') => {
 
 //has to call a function on the server as the fs package only runs away from a client side file
 const readFile = async(page = {}) => {
-    const res = await fetch('http://localhost:3030/read', {
+    const res = await fetch('http://localhost:8000/read', {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
@@ -58,7 +58,7 @@ const checkBrowser = () => {
 }
 
 const readMozFile = async () => {
-    const res = await fetch('http://localhost:3030/readMoz')
+    const res = await fetch('http://localhost:8000/readMoz')
 
     try {
         const data = await res.json()
@@ -75,7 +75,7 @@ const readMozFile = async () => {
 }
 
 const readStream = async () => {
-    const res = await fetch('http://localhost:3030/readStream')
+    const res = await fetch('http://localhost:8000/readStream')
 
     try {
         const data = await res.json()
