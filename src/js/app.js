@@ -1,6 +1,8 @@
 import ListBuilder from './listBuilder'
 import Loader from './loader'
 
+
+//TODO: change so user has to choose a file, but can still select either appData file to upload.
 const init = () => {
     window.removeEventListener('DOMContentLoaded', init)
 
@@ -8,7 +10,7 @@ const init = () => {
     fileSelector.addEventListener('submit', readOrigin)
 
     //fire off initial event to populate page with default file selector form option
-    const initEvent = new Event('submit', {'cancelable': true})
+    const initEvent = new Event('submit', { 'cancelable': true })
     fileSelector.dispatchEvent(initEvent)
 }
 
