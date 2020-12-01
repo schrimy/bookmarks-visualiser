@@ -8,9 +8,9 @@
 ## Overview
 
 An attempt at building a bookmaks visualiser to make it a bit easier for me to reference things when developing. Currently using:
-vanilla JS, SASS, HTML, webpack.
+vanilla JS, SASS, HTML, webpack, node.js, express server.
 
-Currently have the option to read from local app data or to choose an html file to read. It animates in each folder contents as per click
+Currently the user can choose the exported html file or local appData file to upload (jsonlz4 or plain). It animates in each folder contents as per click
 and closes the relevant folder contents when a folder further back in the list is clicked. Displays loading whilst a file text is being
 parsed and read.
 
@@ -29,11 +29,8 @@ to prove the concept.
 
 [stackoverflow](https://stackoverflow.com/questions/23167637/is-it-possible-to-change-the-color-of-selected-radio-buttons-center-circle) - custom radio button styles (17/11/2020)
 
-[stackoverflow](https://stackoverflow.com/questions/10956740/finding-latest-modified-file-in-a-folder/42603192) - determine the latest file in a folder to therefore use the latest version of the mozilla bookmarks backup (23/11/2020)
-
-[stackoverflow](https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser) - how to detect which browser is being used (24/11/2020)
+[multer, npm](https://www.npmjs.com/package/multer) - node package to receive files as multipart/form data in the server and store it for use. Here the file is then parsed server side and the data returned to the client. (1/12/2020)
 
 ## ToDo
 
-* make sure paths set for reading browser local files works when deployed
 * general styling updates
