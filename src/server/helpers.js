@@ -43,21 +43,18 @@ const readFile = async(page = {}) => {
     }
 }
 
-//https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser - detect currently used browser (24/11/2020)
-//detects if either firefox or chrome is being used and then runs the relevenat helper method
 const checkFile = (file = {}) => {
     console.log('passed in file:', file)
     const fileType = file.name.split('.')
     const truePath = window.URL.createObjectURL(file)
 
-    //TODO: sort passing file for plain bookmark file
     switch(fileType[fileType.length - 1].toLowerCase()) {
         case 'html':
             return readBlob(truePath)
         case 'jsonlz4':
             return readMozFile(file)
         default:
-            readStream(truePath)
+            return readStream(file)
     }
 }
 
@@ -86,8 +83,15 @@ const readMozFile = async (file = {}) => {
     }
 }
 
-const readStream = async () => {
-    const res = await fetch('http://localhost:8000/readStream')
+const readStream = async (file = {}) => {
+    let formData = new FormData()
+    formData.append('file', file)
+
+    const res = await fetch('http://localhost:8000/readStream', {
+        method: 'POST',
+        credentials: 'same-origin',
+        body: formData
+    })
 
     try {
         const data = await res.json()
@@ -110,6 +114,7 @@ const readStream = async () => {
     }
 }
 
+//TODO: cleanup unneeded methods
 export {
     readFile,
     readStream,
