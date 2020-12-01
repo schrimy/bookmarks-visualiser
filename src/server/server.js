@@ -2,6 +2,8 @@ const express = require('express')
 //https://www.npmjs.com/package/bookmark-parser (29/10/2020)
 const BMParser = require('bookmarks-parser')
 const MozParser = require('bookmark-parser')
+const multer = require('multer')
+const upload = multer({ dest: '../assets/' })
 const fs = require('fs')
 
 const dotenv = require('dotenv')
@@ -33,7 +35,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve('src/index.html'))
 })
 
-//TODO: may also need to use 'path' package to form correct file paths when live
 app.post('/read', (req, res) => {
     console.log('server read file body:', req.body)
 
@@ -48,20 +49,9 @@ app.post('/read', (req, res) => {
     })
 })
 
-app.get('/readMoz', (req, res) => {
-    const defaultFolder = fs.readdirSync(path.relative(__dirname, '../AppData/Roaming/Mozilla/Firefox/Profiles')).map(folders => {
-        if(folders.match(/default/)) {
-            return folders
-        }
-    })
-
-    const filePath = path.relative(__dirname, `../AppData/Roaming/Mozilla/Firefox/Profiles/${defaultFolder}/bookmarkbackups`)
-
-    const latestFile = fs.readdirSync(filePath)
-    .sort((a, b) => fs.statSync(`${filePath}/${b}`).mtime - fs.statSync(`${filePath}/${a}`).mtime)
-
-    console.log('latest file:', latestFile[0])
-    MozParser.readFromJSONLZ4File(`${filePath}/${latestFile[0]}`)
+app.post('/readMoz', upload.single('file'), (req, res) => {
+    console.log('passed in body:', req.file)
+    MozParser.readFromJSONLZ4File(req.file.path)
     .then((data) => {
         res.send(data)
     })
@@ -73,7 +63,8 @@ app.get('/readMoz', (req, res) => {
 //TODO: for heroku get fs to grab correct filepath from computer and not where it's hosted
 app.get('/readStream', (req, res) => {
     console.log('server read stream')
-    fs.promises.readFile(path.relative(__dirname, '../AppData/Local/Google/Chrome/User Data/Default/Bookmarks'))
+    fs.promises.readFile('/AppData/Local/Google/Chrome/User Data/Default/Bookmarks')
+    //fs.promises.readFile(path.relative(__dirname, '../AppData/Local/Google/Chrome/User Data/Default/Bookmarks'))
     .then((data) => {
         res.send(data)
     })

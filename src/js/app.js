@@ -10,13 +10,13 @@ const init = () => {
     fileSelector.addEventListener('submit', readOrigin)
 
     //fire off initial event to populate page with default file selector form option
-    const initEvent = new Event('submit', { 'cancelable': true })
-    fileSelector.dispatchEvent(initEvent)
+    //const initEvent = new Event('submit', { 'cancelable': true })
+    //fileSelector.dispatchEvent(initEvent)
 }
 
 const readOrigin = (evt) => {
     evt.preventDefault()
-    const origin = evt.target.origin.value
+    //const origin = evt.target.origin.value
 
     //clear current lists and show loading
     const listContainer = document.querySelector('#lists-container')
@@ -24,7 +24,7 @@ const readOrigin = (evt) => {
     const loader = new Loader(listContainer)
 
     //dependent on selected origin return helper method to run
-    const helperToRun = origin === 'file'
+    /*const helperToRun = origin === 'file'
         ? () => {
             const filePath = document.querySelector('#file-path')
             console.log('file element files:', filePath.files[0])
@@ -33,7 +33,11 @@ const readOrigin = (evt) => {
         }
         : Client.checkBrowser
 
-    helperToRun()
+    helperToRun()*/
+    const filePath = document.querySelector('#file-path')
+    console.log('file element files:', filePath.files[0])
+    
+    Client.checkFile(filePath.files[0])
     .then((data) => {
         console.log('readOrigin returns:', data)
 
