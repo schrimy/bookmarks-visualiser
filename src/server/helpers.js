@@ -114,11 +114,6 @@ const readStream = async (file = {}) => {
     }
 }
 
-//TODO: cleanup unneeded methods
 export {
-    readFile,
-    readStream,
-    readMozFile,
-    readBlob,
     checkFile
 }

@@ -60,7 +60,6 @@ app.post('/readMoz', upload.single('file'), (req, res) => {
     })
 })
 
-//TODO: for heroku get fs to grab correct filepath from computer and not where it's hosted
 app.post('/readStream', upload.single('file'), (req, res) => {
     console.log('server read stream:', req.file)
     fs.promises.readFile(req.file.path)

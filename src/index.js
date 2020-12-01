@@ -2,7 +2,7 @@
  * js
  */
 import { init } from './js/app'
-import { readFile, readStream, readMozFile, readBlob, checkFile } from './server/helpers'
+import { checkFile } from './server/helpers'
 
 /**
  * styles
@@ -13,9 +13,5 @@ import './styles/main.scss'
 window.addEventListener('DOMContentLoaded', init)
 
 export {
-    readFile,
-    readStream,
-    readMozFile,
-    readBlob,
     checkFile
 }

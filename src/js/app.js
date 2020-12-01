@@ -1,8 +1,6 @@
 import ListBuilder from './listBuilder'
 import Loader from './loader'
 
-
-//TODO: change so user has to choose a file, but can still select either appData file to upload.
 const init = () => {
     window.removeEventListener('DOMContentLoaded', init)
 
