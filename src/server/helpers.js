@@ -43,8 +43,12 @@ const readFile = async(page = {}) => {
     }
 }
 
-const checkFile = (file = {}) => {
+const checkFile = (file) => {
     console.log('passed in file:', file)
+    if(file === undefined) {
+        return Promise.reject('No file receieved')
+    }
+
     const fileType = file.name.split('.')
     const truePath = window.URL.createObjectURL(file)
 

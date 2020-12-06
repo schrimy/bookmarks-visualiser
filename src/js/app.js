@@ -28,7 +28,8 @@ const readOrigin = (evt) => {
         displayBookMarks(data)
     })
     .catch(err => {
-        alert('Incompatible file, please check file is a bookmarks html and try again')
+        alert('Incompatible file, please check file is a bookmarks file and try again')
+        loader.stopTimer()
         console.log('error reading file:', err)
     })
 }
