@@ -17,7 +17,7 @@ parsed and read.
 There are several updates I would like to implement further to improve the look and feel of the app but for now it is functioning enough
 to prove the concept.
 
-Please note! If you clone the repo you will get errors when running it after dependencies are installed, as I have removed the icons used for the folder and link objects. This is for conditions of use and redistribution. You can replace these icons with your own or ones from iconmonstr as linked below. You'll just need to rename them appropriately and in the `src/assets/icons` directory. Names needed: "folder-icon.svg", "folder-open-icon.svg", "open-icon.svg" (link obj).
+It now uses bootstrap icons in place of non-distributable icons used previously.
 
 ## Resources
 

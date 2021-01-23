@@ -1,5 +1,4 @@
 import ListBuilder from './listBuilder'
-import folderImg from '../assets/icons/folder-open-icon.svg'
 export default class Folder {
 
     constructor(parentNode, folderObj) {
@@ -27,12 +26,12 @@ export default class Folder {
         //remove inline style of filled folder image if another sibling folder has been clicked
         parentObj.childNodes.forEach(item => {
             if(item.childNodes[1] !== undefined) {
-                item.childNodes[1].removeAttribute('style')
+                item.childNodes[1].classList.remove('clicked-folder')
             }
         })
 
         //add filled in icon to clicked folder object
-        this.folderBtn.setAttribute('style', `background: url(${folderImg})`)
+        this.folderBtn.classList.add('clicked-folder')
         
         //remove any sibling folder lists to the current parent list
         while(parentObj.nextElementSibling !== null) {

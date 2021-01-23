@@ -161,16 +161,26 @@ footer {
     width: 24px;
     height: 24px;
     outline: none;
-    background: url('../assets/icons/open-icon.svg');
+    background: url('../assets/icons/box-arrow-up-right.svg') no-repeat;
+    background-size: 100%;
     filter: invert(43%) sepia(47%) saturate(3429%) hue-rotate(272deg) brightness(90%) contrast(116%);
 }
 
 .folder-btn {
     @extend .bookmark-link;
-    background: url('../assets/icons/folder-icon.svg') no-repeat;
+    background: url('../assets/icons/folder2.svg') no-repeat;
+    background-size: 100%;
     filter: invert(43%) sepia(47%) saturate(3429%) hue-rotate(272deg) brightness(90%) contrast(116%);
+    padding: 0;
 
     &:hover {
-        background: url('../assets/icons/folder-open-icon.svg');
+        background: url('../assets/icons/folder-fill.svg') no-repeat;
+        background-size: 100%;
     }
+}
+
+.clicked-folder {
+    @extend .bookmark-link;
+    background: url('../assets/icons/folder-fill.svg') no-repeat;
+    background-size: 100%;
 }
